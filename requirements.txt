@@ -1,0 +1,4 @@
+#https://tutorial.djangogirls.org/en/django_models/  TUTORIAL PARA COMENZAR UN PROYECTO CON DJANGO.
+#pip install -r requirements.txt 
+Django~=3.2.10
+mysqlclient
