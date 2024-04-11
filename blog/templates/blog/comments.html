@@ -1,12 +1,14 @@
 <h3>Comments</h3>
-{% for comment in comments %}
-    <div class="comment">
-        <p>{{ comment.author }} ({{ comment.created_date|date:"d/m/Y H:i" }})</p>
-        <p>{{ comment.text }}</p>
-    </div>
-{% empty %}
+{% if comments %}
+    {% for comment in comments %}
+        <div class="comment">
+            <p>{{ comment.author }} ({{ comment.created_date|date:"d/m/Y H:i" }})</p>
+            <p>{{ comment.text }}</p>
+        </div>
+    {% endfor %}
+{% else %}
     <p>No comments yet.</p>
-{% endfor %}
+{% endif %}
 
 <hr>
 <h3>Add a comment</h3>

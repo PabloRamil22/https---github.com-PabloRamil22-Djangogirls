@@ -9,6 +9,13 @@ from django.urls import reverse
 from django.shortcuts import render, get_object_or_404, redirect
 from .models import Comment
 
+
+def post_detail(request, pk):
+    post = get_object_or_404(Post, pk=pk)
+    comments = post.comments.all()
+    return render(request, 'blog/post_detail.html', {'post': post, 'comments': comments})
+
+
 def add_comment_to_post(request, pk):
     post = get_object_or_404(Post, pk=pk)
     if request.method == 'POST':
