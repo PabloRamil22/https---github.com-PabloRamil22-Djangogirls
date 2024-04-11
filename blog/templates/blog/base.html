@@ -12,7 +12,8 @@
             {% if user.is_authenticated %}
             <a href="{% url 'post_new' %}" class="top-menu"><span class="glyphicon glyphicon-plus"></span></a>
             {% endif %}
-            <h1><a href="/">Pablo App</a></h1>
+            <img src="{% static 'css/img/icon.jpg' %}" alt="Descripción de la imagen" class="logo-img">
+            <h1><a href="/">Forum Romanum</a></h1>
         </div>
         <div class="content container">
             <div class="row">

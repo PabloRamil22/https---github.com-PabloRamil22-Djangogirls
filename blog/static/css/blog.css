@@ -68,3 +68,23 @@ h4 {
     color: #FFFFFF;
     background-color: #C25100;
 }
+
+.logo-img {
+    width: 130px; /* Tamaño deseado */
+    margin-right: 20px; /* Espacio entre la imagen y el texto */
+    float: left; /* Para que la imagen se coloque a la izquierda */
+}
+
+
+
+
+/* CSS del Post_list.html*/
+
+.btn-container {
+    display: inline-block;
+}
+
+.btn-container form {
+    display: inline;
+    margin-right: 5px; /* Espacio entre los botones */
+}

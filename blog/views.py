@@ -4,7 +4,32 @@ from .models import Post
 from django.shortcuts import render, get_object_or_404
 from .forms import PostForm
 from django.shortcuts import redirect
+from django.http import HttpResponseRedirect
+from django.urls import reverse
+from django.shortcuts import render, get_object_or_404, redirect
+from .models import Comment
 
+def add_comment_to_post(request, pk):
+    post = get_object_or_404(Post, pk=pk)
+    if request.method == 'POST':
+        author = request.POST['author']
+        text = request.POST['text']
+        Comment.objects.create(post=post, author=author, text=text)
+        return redirect('post_detail', pk=post.pk)
+    return render(request, 'blog/comments.html', {'post': post})
+
+    
+def post_detail(request, pk):
+    post = get_object_or_404(Post, pk=pk)
+    comments = post.comments.all()
+    return render(request, 'blog/post_detail.html', {'post': post, 'comments': comments})
+
+
+
+def post_delete(request, pk):
+    post = get_object_or_404(Post, pk=pk)
+    post.delete()
+    return HttpResponseRedirect(reverse('post_list'))
 
 
 
