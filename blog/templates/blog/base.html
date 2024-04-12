@@ -6,8 +6,14 @@
         <link rel="stylesheet" href="//maxcdn.bootstrapcdn.com/bootstrap/3.2.0/css/bootstrap-theme.min.css">
         <link href='//fonts.googleapis.com/css?family=Lobster&subset=latin,latin-ext' rel='stylesheet' type='text/css'>
         <link rel="stylesheet" href="{% static 'css/blog.css' %}">
+        <script src="https://code.jquery.com/jquery-3.7.1.min.js" integrity="sha256-/JqT3SQfawRcv/BIHPThkBvs0OEvtFFmqPF/lYI/Cxo=" crossorigin="anonymous"></script>
+        <link rel="stylesheet" href="{% static 'css/js/votacion.js' %}">
     </head>
-    <body>
+    <body >
+        <form action="">
+            {% csrf_token %}
+        </form>
+        
         <div class="page-header">
             {% if user.is_authenticated %}
             <a href="{% url 'post_new' %}" class="top-menu"><span class="glyphicon glyphicon-plus"></span></a>
@@ -23,5 +29,34 @@
                 </div>
             </div>
         </div>
+        <script>
+            $(document).ready(function() {
+
+console.log("cargado");
+$('.toggle-favorite').click(function(e) {
+    e.preventDefault();
+    var postId = $(this).data('post-id');
+    var favorited = $(this).data('favorited');
+    var csrfToken = $('input[name="csrfmiddlewaretoken"]').val();
+    $.ajax({
+        type: 'POST',
+        url: '/toggle_favorite/' + postId + '/',
+        data: {
+            'csrfmiddlewaretoken': csrfToken, // Usar el token CSRF
+        },
+        success: function(data) {
+            if (data.favorited) {
+                $('.toggle-favorite[data-post-id="' + postId + '"]').text('Remove from Favorites');
+            } else {
+                $('.toggle-favorite[data-post-id="' + postId + '"]').text('Add to Favorites');
+            }
+        },
+        error: function(xhr, textStatus, errorThrown) {
+            console.log('Error:', errorThrown);
+        }
+    });
+});
+});
+        </script>
     </body>
 </html>

@@ -11,7 +11,7 @@
 {% endif %}
 
 <hr>
-<h3>Add a comment</h3>
+<h3>Escribe un comentario</h3>
 <form method="post" action="{% url 'add_comment_to_post' pk=post.pk %}">
     {% csrf_token %}
     <div class="form-group">

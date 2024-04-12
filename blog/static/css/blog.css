@@ -1,90 +1,81 @@
+/* Estilos Generales */
+body {
+    background-color: #d2b48c; /* Color de fondo inspirado en arcilla */
+    font-family: 'Lobster', cursive; /* Fuente con estilo antiguo */
+}
+
 .page-header {
-    background-color: #C25100;
-    margin-top: 0;
-    margin-bottom: 40px;
-    padding: 20px 20px 20px 40px;
+    background-color: #8b4513; /* Color de fondo del encabezado - Marrón oscuro */
+    color: #fff; /* Color del texto del encabezado */
+    padding: 20px;
+    text-align: center;
+    border-bottom: 3px solid #6b4226; /* Línea divisoria */
 }
 
-.page-header h1,
-.page-header h1 a,
-.page-header h1 a:visited,
-.page-header h1 a:active {
-    color: #ffffff;
-    font-size: 36pt;
-    text-decoration: none;
+.page-header h1 a {
+    color: #fff; /* Color del enlace en el encabezado */
+    text-decoration: none; /* Quita la subrayado del enlace */
 }
 
-h1,
-h2,
-h3,
-h4 {
-    font-family: 'Lobster', cursive;
+.content {
+    margin-top: 20px;
 }
 
-.date {
-    color: #828282;
-}
-
-.save {
-    float: right;
-}
-
-.post-form textarea,
-.post-form input {
-    width: 100%;
-}
-
-.top-menu,
-.top-menu:hover,
-.top-menu:visited {
-    color: #ffffff;
-    float: right;
-    font-size: 26pt;
+/* Estilos para el logo */
+.logo-img {
+    width: 100px; /* Tamaño del logo */
+    height: 100px;
+    border-radius: 50%; /* Forma circular */
     margin-right: 20px;
 }
 
-.post {
-    margin-bottom: 70px;
+/* Animación para el logo */
+.logo-img:hover {
+    transform: rotate(360deg); /* Rotación completa al pasar el ratón */
+    transition: transform 1s ease-in-out; /* Transición suave */
 }
 
-.post h2 a,
-.post h2 a:visited {
-    color: #000000;
+/* Estilos para el botón de añadir nuevo post */
+.top-menu {
+    float: right; /* Mueve el botón a la derecha */
+    margin-top: 10px;
+    color: #fff;
 }
 
-.post > .date,
-.post > .actions {
-    float: right;
+/* Estilos para el contenido de la publicación */
+.col-md-8 {
+    background-color: #eedd82; /* Color de fondo del contenido - Amarillo oscuro */
+    padding: 20px;
+    border-radius: 10px;
 }
 
-.btn-secondary,
-.btn-secondary:visited {
-    color: #C25100;
-    background: none;
-    border-color: #C25100;
-}
-
-.btn-secondary:hover {
-    color: #FFFFFF;
-    background-color: #C25100;
-}
-
-.logo-img {
-    width: 130px; /* Tamaño deseado */
-    margin-right: 20px; /* Espacio entre la imagen y el texto */
-    float: left; /* Para que la imagen se coloque a la izquierda */
+/* Animación para el contenido de la publicación */
+.col-md-8:hover {
+    transform: scale(1.05); /* Aumenta ligeramente el tamaño al pasar el ratón */
+    transition: transform 0.5s ease-in-out; /* Transición suave */
 }
 
 
 
 
-/* CSS del Post_list.html*/
+/* Estilos para los botones estilo romano */
+.btn-roman {
+    background-color: #8b4513; /* Marrón oscuro */
+    color: #fff; /* Color del texto */
+    border: none;
+    padding: 8px 15px; /* Aumentar ligeramente el padding */
+    border-radius: 5px;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+}
 
 .btn-container {
-    display: inline-block;
+    margin-top: 10px; /* Espacio entre los botones y el contenido */
 }
 
-.btn-container form {
-    display: inline;
-    margin-right: 5px; /* Espacio entre los botones */
+/* Estilos para el botón "Editar" */
+.btn-container form:first-child button {
+    margin-right: 10px; /* Añadir margen derecho */
 }
+
+

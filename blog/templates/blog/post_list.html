@@ -5,16 +5,22 @@
     <p> Publicado: {{ post.published_date }}</p>
     <h2><a href="{% url 'post_detail' pk=post.pk %}">{{ post.title }}</a></h2>
     <p>{{ post.text|linebreaksbr }}</p>
+    {% if user.is_authenticated %}
+    {% if user in post.favoritos.all %}
+        <button class="btn btn-danger toggle-favorite" data-post-id="{{ post.pk }}" data-favorited="true">Remove from Favorites</button>
+    {% else %}
+        <button class="btn btn-primary toggle-favorite" data-post-id="{{ post.pk }}" data-favorited="false">Add to Favorites</button>
+    {% endif %}
+    {% endif %}
     <div class="btn-container">
         <form method="GET" action="{% url 'post_edit' pk=post.pk %}" style="display: inline;">
-            <button type="submit" class="btn btn-primary">Editar</button>
+            <button type="submit" class="btn btn-roman">Editar</button>
         </form>
         <form method="POST" action="{% url 'post_delete' pk=post.pk %}">
             {% csrf_token %}
-            <button type="submit" class="btn btn-danger">Eliminar</button>
+            <button type="submit" class="btn btn-roman">Eliminar</button>
         </form>
-       
-    </div>
+        
 </div>
 {% endfor %}
 {% endblock %}
